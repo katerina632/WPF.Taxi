@@ -1,0 +1,61 @@
+﻿<Window x:Class="Taxi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Taxi"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Content="TAXI" Margin="0" HorizontalAlignment="Center" />
+        <Label Grid.Column="0" Grid.Row="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,11,20,11">Name:</Label>
+        <Label Grid.Column="0" Grid.Row="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,11,20,11">Surname:</Label>
+        <Label Grid.Column="0" Grid.Row="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,11,20,11">Arrival address:</Label>
+        <TextBlock  Grid.Column="0" Grid.Row="4" FontSize="16" Margin="0,15,20,15" TextWrapping="Wrap" Text=" Number of passengers:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Name="nameTexBox"  Margin="10,14" Grid.Column="1" Grid.Row="1" FontSize="16" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox Name="surnameTexBox" Margin="10,14" Grid.Column="1" Grid.Row="2" FontSize="16" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox Name="addressTexBox" Margin="10,15,10,14" Grid.Column="1" Grid.Row="3" FontSize="16" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+
+
+        <DockPanel Grid.Column="1" Grid.Row="4" LastChildFill="True" Grid.ColumnSpan="2">
+            <TextBlock Name="passNumTexBlock" Margin="10" DockPanel.Dock="Left"  FontSize="16" VerticalAlignment="Center">1</TextBlock>
+            <RepeatButton Delay="1000"  Name="numberRepeatButton"  DockPanel.Dock="Left"  Margin="10,0"  FontSize="16" VerticalAlignment="Center" Interval="500" Click="numberRepeatButton_Click">
+                Add
+            </RepeatButton>
+        </DockPanel>
+
+        <GroupBox x:Name="groupBox" Margin="2" Grid.Column="0" Grid.Row="5" FontSize="16" Grid.ColumnSpan="3" Header="Type of car" HorizontalAlignment="Center">
+            <StackPanel  x:Name="stackPanelType" Orientation="Horizontal" VerticalAlignment="Center">
+                <RadioButton x:Name="economRadioButton" Margin="5" Tag="" Click="RadioButton_Click" IsChecked="True" >Econom</RadioButton>
+                <RadioButton x:Name="standartRadioButton"  Margin="5" Click="RadioButton_Click">Standart</RadioButton>
+                <RadioButton x:Name="comfortRadioButton"  Margin="5" Click="RadioButton_Click">Comfort</RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <CheckBox x:Name="acceptCheckBox"  Grid.Column="0" Grid.Row="6" FontSize="16" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Accept the conditions of use"  Checked="acceptCheckBox_Checked" Unchecked="acceptCheckBox_Unchecked"/>
+
+
+        <Grid  Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="orderButton" Margin="10" Grid.Column="0"  FontSize="16" IsEnabled="False" Click="order_Click" >Order</Button>
+            <Button x:Name="canselButton" Margin="10" Grid.Column="1" FontSize="16" Click="canselButton_Click"  >Cansel</Button>
+        </Grid>
+    </Grid>
+
+</Window>
